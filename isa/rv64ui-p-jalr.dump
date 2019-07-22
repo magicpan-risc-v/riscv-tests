@@ -1,0 +1,121 @@
+
+rv64ui-p-jalr:     file format elf64-littleriscv
+
+
+Disassembly of section .text.startup:
+
+0000000000000000 <_start>:
+   0:	008007b7          	lui	a5,0x800
+   4:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
+   8:	04100713          	li	a4,65
+   c:	00e78023          	sb	a4,0(a5)
+  10:	00e78023          	sb	a4,0(a5)
+  14:	00e78023          	sb	a4,0(a5)
+  18:	00000263          	beqz	zero,1c <test_2>
+
+000000000000001c <test_2>:
+  1c:	00200193          	li	gp,2
+  20:	00000293          	li	t0,0
+  24:	00000317          	auipc	t1,0x0
+  28:	01030313          	addi	t1,t1,16 # 34 <target_2>
+  2c:	000302e7          	jalr	t0,t1
+
+0000000000000030 <linkaddr_2>:
+  30:	0c00006f          	j	f0 <fail>
+
+0000000000000034 <target_2>:
+  34:	00000317          	auipc	t1,0x0
+  38:	ffc30313          	addi	t1,t1,-4 # 30 <linkaddr_2>
+  3c:	0a629a63          	bne	t0,t1,f0 <fail>
+
+0000000000000040 <test_4>:
+  40:	00400193          	li	gp,4
+  44:	00000213          	li	tp,0
+  48:	00000317          	auipc	t1,0x0
+  4c:	01030313          	addi	t1,t1,16 # 58 <test_4+0x18>
+  50:	000309e7          	jalr	s3,t1
+  54:	08301e63          	bne	zero,gp,f0 <fail>
+  58:	00120213          	addi	tp,tp,1 # 1 <_start+0x1>
+  5c:	00200293          	li	t0,2
+  60:	fe5214e3          	bne	tp,t0,48 <test_4+0x8>
+
+0000000000000064 <test_5>:
+  64:	00500193          	li	gp,5
+  68:	00000213          	li	tp,0
+  6c:	00000317          	auipc	t1,0x0
+  70:	01430313          	addi	t1,t1,20 # 80 <test_5+0x1c>
+  74:	00000013          	nop
+  78:	000309e7          	jalr	s3,t1
+  7c:	06301a63          	bne	zero,gp,f0 <fail>
+  80:	00120213          	addi	tp,tp,1 # 1 <_start+0x1>
+  84:	00200293          	li	t0,2
+  88:	fe5212e3          	bne	tp,t0,6c <test_5+0x8>
+
+000000000000008c <test_6>:
+  8c:	00600193          	li	gp,6
+  90:	00000213          	li	tp,0
+  94:	00000317          	auipc	t1,0x0
+  98:	01830313          	addi	t1,t1,24 # ac <test_6+0x20>
+  9c:	00000013          	nop
+  a0:	00000013          	nop
+  a4:	000309e7          	jalr	s3,t1
+  a8:	04301463          	bne	zero,gp,f0 <fail>
+  ac:	00120213          	addi	tp,tp,1 # 1 <_start+0x1>
+  b0:	00200293          	li	t0,2
+  b4:	fe5210e3          	bne	tp,t0,94 <test_6+0x8>
+
+00000000000000b8 <test_7>:
+  b8:	00100293          	li	t0,1
+  bc:	00000317          	auipc	t1,0x0
+  c0:	01c30313          	addi	t1,t1,28 # d8 <test_7+0x20>
+  c4:	ffc30067          	jr	-4(t1)
+  c8:	00128293          	addi	t0,t0,1
+  cc:	00128293          	addi	t0,t0,1
+  d0:	00128293          	addi	t0,t0,1
+  d4:	00128293          	addi	t0,t0,1
+  d8:	00128293          	addi	t0,t0,1
+  dc:	00128293          	addi	t0,t0,1
+  e0:	00400e93          	li	t4,4
+  e4:	00700193          	li	gp,7
+  e8:	01d29463          	bne	t0,t4,f0 <fail>
+  ec:	00301e63          	bne	zero,gp,108 <pass>
+
+00000000000000f0 <fail>:
+  f0:	008007b7          	lui	a5,0x800
+  f4:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
+  f8:	04e00713          	li	a4,78
+  fc:	00e78023          	sb	a4,0(a5)
+ 100:	00e78023          	sb	a4,0(a5)
+ 104:	00e78023          	sb	a4,0(a5)
+
+0000000000000108 <pass>:
+ 108:	008007b7          	lui	a5,0x800
+ 10c:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
+ 110:	05900713          	li	a4,89
+ 114:	00e78023          	sb	a4,0(a5)
+ 118:	00e78023          	sb	a4,0(a5)
+ 11c:	00e78023          	sb	a4,0(a5)
+ 120:	c0001073          	unimp
+
+Disassembly of section .tohost:
+
+0000000000001000 <tohost>:
+	...
+
+0000000000001040 <fromhost>:
+	...
+
+Disassembly of section .riscv.attributes:
+
+0000000000000000 <.riscv.attributes>:
+   0:	1941                	addi	s2,s2,-16
+   2:	0000                	unimp
+   4:	7200                	ld	s0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <_start+0x14>
+   c:	0000000f          	fence	unknown,unknown
+  10:	7205                	lui	tp,0xfffe1
+  12:	3676                	fld	fa2,376(sp)
+  14:	6934                	ld	a3,80(a0)
+  16:	7032                	0x7032
+  18:	0030                	addi	a2,sp,8

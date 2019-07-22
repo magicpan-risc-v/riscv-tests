@@ -2,7 +2,6 @@
 *.riscv
 *.host
 *.o
-*.dump
 *.out
 *.hex
 .*.swp
