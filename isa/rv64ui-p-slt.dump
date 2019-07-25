@@ -396,7 +396,7 @@ Disassembly of section .text.startup:
 00000000000004e4 <fail>:
  4e4:	008007b7          	lui	a5,0x800
  4e8:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
- 4ec:	04e00713          	li	a4,78
+ 4ec:	01e18713          	addi	a4,gp,30
  4f0:	00e78023          	sb	a4,0(a5)
  4f4:	00e78023          	sb	a4,0(a5)
  4f8:	00e78023          	sb	a4,0(a5)

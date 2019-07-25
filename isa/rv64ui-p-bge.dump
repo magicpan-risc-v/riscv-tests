@@ -262,7 +262,7 @@ Disassembly of section .text.startup:
 000000000000033c <fail>:
  33c:	008007b7          	lui	a5,0x800
  340:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
- 344:	04e00713          	li	a4,78
+ 344:	01e18713          	addi	a4,gp,30
  348:	00e78023          	sb	a4,0(a5)
  34c:	00e78023          	sb	a4,0(a5)
  350:	00e78023          	sb	a4,0(a5)

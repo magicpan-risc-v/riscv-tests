@@ -232,7 +232,7 @@ Disassembly of section .text.startup:
 00000000000002dc <fail>:
  2dc:	008007b7          	lui	a5,0x800
  2e0:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
- 2e4:	04e00713          	li	a4,78
+ 2e4:	01e18713          	addi	a4,gp,30
  2e8:	00e78023          	sb	a4,0(a5)
  2ec:	00e78023          	sb	a4,0(a5)
  2f0:	00e78023          	sb	a4,0(a5)

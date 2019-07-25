@@ -83,7 +83,7 @@ Disassembly of section .text.startup:
 00000000000000f0 <fail>:
   f0:	008007b7          	lui	a5,0x800
   f4:	ff878793          	addi	a5,a5,-8 # 7ffff8 <_end+0x7fdff8>
-  f8:	04e00713          	li	a4,78
+  f8:	01e18713          	addi	a4,gp,30
   fc:	00e78023          	sb	a4,0(a5)
  100:	00e78023          	sb	a4,0(a5)
  104:	00e78023          	sb	a4,0(a5)
